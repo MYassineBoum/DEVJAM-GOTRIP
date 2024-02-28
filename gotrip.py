@@ -20,9 +20,13 @@ def submit():
             result_string += f"Hotel {best_combination[0]} and Restaurant {best_combination[2]}\n"
         else:
             result_string += "No combination found within the given budget and duration.\n"
+    return render_template('home.html', result=format_str(result_string))
 
-    return render_template('home.html', result=result_string)
-
+def format_str(in_string):
+    """Replaces '\n' with </br> to properly display the string in
+    an html file
+    """
+    return "</br>".join(in_string.split("\n"))
 
 def get_best_combination(budget, duration, preference):
     conn = sqlite3.connect('gotrip.sqlite3')

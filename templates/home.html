@@ -23,6 +23,7 @@
     }
     .container-right {
       background-color: white;
+      width: 70%;
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -129,7 +130,7 @@
   <!-- New container for the right side -->
   <div class="container-right">
     <h2>Results</h2>
-    <p>{{result}}</p>
+    <p>{{result | safe}}</p>
   </div>
 </body>
 </html>
