@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f7f7f7;
+    }
+    .container-left {
+      background-color: white;
+      margin-right: 20px; /* Added margin to create space between containers */
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .container-right {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-check-label {
+      margin-left: 5px;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+    img {
+      height: 5em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container-left"> <!-- New container for the left side -->
+    <div class="row">
+      <div class="col-12 text-center">
+        <img src="../static/images/logo.png" alt="logo">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <form action="submit.php" method="post">
+          <div class="form-group">
+            <label for="budget">Budget</label>
+            <input type="number" name="budget" id="budget" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="duration">Duration</label>
+            <input type="number" name="duration" id="duration" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="preferences">Preferences</label>
+            <div class="form-check">
+              <input type="radio" name="preferences[]" id="nature" class="form-check-input" value="nature">
+              <label for="nature" class="form-check-label">Nature</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" name="preferences[]" id="culture" class="form-check-input" value="culture">
+              <label for="culture" class="form-check-label">Culture</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" name="preferences[]" id="gastronomy" class="form-check-input" value="gastronomy">
+              <label for="gastronomy" class="form-check-label">Gastronomy</label>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <!-- New container for the right side -->
+  <div class="container-right">
+    <h2>Results</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+    <p>Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.</p>
+  </div>
+</body>
+</html>
