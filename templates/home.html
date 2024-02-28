@@ -19,12 +19,14 @@
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      height: 500px;
     }
     .container-right {
       background-color: white;
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      height: 500px;
     }
     .form-group {
       margin-bottom: 20px;
@@ -46,6 +48,42 @@
     img {
       height: 5em;
     }
+
+    #budget {
+      padding: 10px;
+      border-radius: 5px;
+      border: solid #007bff 2px;
+      outline: none;
+      width: 200px;
+    }
+
+    #duration {
+      padding: 10px;
+      border-radius: 5px;
+      border: solid #007bff 2px;
+      outline: none;
+      width: 200px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    form {
+      padding: 40px;
+    }
+
+    .form-group label {
+      padding-bottom: 5px;
+    }
+
+    #submit {
+      margin-top: 40px;
+      text-align: center;
+    }
+
   </style>
 </head>
 <body>
@@ -81,7 +119,7 @@
               <label for="gastronomy" class="form-check-label">Gastronomy</label>
             </div>
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button id="submit" type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
     </div>
