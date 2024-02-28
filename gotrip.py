@@ -9,17 +9,17 @@ def hello_world():
 
 @app.route('/submit', methods=['POST'])
 def submit():
-    # Retrieve form data
-    budget = request.form.get('budget')
-    duration = request.form.get('duration')
+    budget = float(request.form.get('budget'))
+    duration = int(request.form.get('duration'))
     preferences = request.form.get('preferences')
+    best_combinations = get_best_combination(budget, duration, preferences)
 
-    best_combination = get_best_combination(budget, duration, preferences)
-
-    if best_combination:
-        result_string = f"The best combination is: Hotel {best_combination[0]} and Restaurant {best_combination[2]}"
-    else:
-        result_string = "No combination found within the given budget and duration."
+    result_string = "The best combination is: "
+    for best_combination in best_combinations:
+        if best_combination:
+            result_string += f"Hotel {best_combination[0]} and Restaurant {best_combination[2]} <br>"
+        else:
+            result_string += "No combination found within the given budget and duration. <br>"
 
     return result_string
 
@@ -32,20 +32,19 @@ def get_best_combination(budget, duration, preference):
                       FROM hotel h
                       JOIN city c ON h.id_city = c.id
                       JOIN restaurant r ON r.id_city = c.id
-                      WHERE c.nature = ? AND c.culture = ?
-                   ''', (preference, preference))
+                      WHERE c.nature = ? OR c.culture = ?
+                   ''', (preference == "nature", preference == "culture"))
 
     results = cursor.fetchall()
-
-    # Filter results based on budget and duration
-    filtered_results = [(hname, hotel_price, rname, restaurant_price)
+    # Filter results based on budget and duration   
+    filtered_results = [(hname, float(hotel_price), rname, float(restaurant_price))
                         for hname, hotel_price, rname, restaurant_price in results
-                        if hotel_price + restaurant_price <= budget]
+                        if float(hotel_price) + (float(restaurant_price)) <= (budget / duration)]
 
     # Calculate the total cost for each combination, including transportation
     combinations = []
     for combination in filtered_results:
-        total_cost = combination[1] + combination[3] + 150  # Default transportation cost
+        total_cost = combination[1] + (combination[3] * duration) + (150 * (duration - 1))
         if total_cost <= budget:
             combinations.append((combination, total_cost))
 
@@ -63,8 +62,13 @@ def get_best_combination(budget, duration, preference):
     conn.close()
 
     # Return the best combination
+    best_combination = []
     if combinations:
-        best_combination = combinations[0][0]
-        return best_combination
+        try:
+            for i in range(duration):
+                best_combination.append(combinations[i][0])   
+            return best_combination
+        except IndexError:
+            return None
     else:
         return None

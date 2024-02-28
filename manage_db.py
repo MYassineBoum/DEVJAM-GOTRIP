@@ -41,7 +41,7 @@ def generate_hotel_data(num_hotels):
     for _ in range(num_hotels):
         hname = f'Hotel {random.randint(1, 100)}'
         price = round(random.uniform(50, 500), 2)
-        id_city = random.randint(1, 5)  # Assuming 5 cities exist in the database
+        id_city = random.randint(1, 5)  
         hotels.append((hname, price, id_city))
     return hotels
 
