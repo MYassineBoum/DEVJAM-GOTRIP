@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello_world():
-    return render_template('home.html')
+    return render_template('home.html', result="")
 
 @app.route('/submit', methods=['POST'])
 def submit():
@@ -14,14 +14,14 @@ def submit():
     preferences = request.form.get('preferences')
     best_combinations = get_best_combination(budget, duration, preferences)
 
-    result_string = "The best combination is: "
+    result_string = "The best combination is: \n"
     for best_combination in best_combinations:
         if best_combination:
-            result_string += f"Hotel {best_combination[0]} and Restaurant {best_combination[2]} <br>"
+            result_string += f"Hotel {best_combination[0]} and Restaurant {best_combination[2]}\n"
         else:
-            result_string += "No combination found within the given budget and duration. <br>"
+            result_string += "No combination found within the given budget and duration.\n"
 
-    return result_string
+    return render_template('home.html', result=result_string)
 
 
 def get_best_combination(budget, duration, preference):
