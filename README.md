@@ -28,4 +28,4 @@ Téléchargez dès maintenant Gotrip et laissez-nous vous emmener dans une avent
 
 ### Comment contribuer?
 
-Nous sommes toujours ouverts aux contributions et aux suggestions d'amélioration! Si vous souhaitez contribuer à Gotrip, veuillez consulter notre guide de contribution pour savoir comment démarrer.
+Nous sommes toujours ouverts aux contributions et aux suggestions d'amélioration! Si vous souhaitez contribuer à Gotrip.
