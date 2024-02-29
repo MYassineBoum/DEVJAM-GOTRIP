@@ -20,7 +20,8 @@ Téléchargez dès maintenant Gotrip et laissez-nous vous emmener dans une avent
 
 ## Ajouter notre prototype 📸
 
-
+![1](https://github.com/MYassineBoum/DEVJAM-GOTRIP/assets/118315997/b510777a-de78-4889-9d16-df5cba3ec073)
+![3](https://github.com/MYassineBoum/DEVJAM-GOTRIP/assets/118315997/53d86e0c-8d2c-4289-81e6-2f141ca5b601)
 
 
 ---
